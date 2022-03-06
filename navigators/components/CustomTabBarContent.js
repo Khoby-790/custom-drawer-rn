@@ -5,7 +5,7 @@ import TabBarButton from './TabBarButton';
 
 const CustomTabBarContent = ({state, descriptors, navigation}) => {
   return (
-    <View style={tailwind`mb-10 mx-2 flex flex-row bg-white p-3 rounded-lg`}>
+    <View style={tailwind`mb-3  flex flex-row  p-2 `}>
       {state.routes.map((route, index) => {
         const {options} = descriptors[route.key];
         const label =

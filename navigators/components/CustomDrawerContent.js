@@ -19,20 +19,18 @@ const CustomDrawerContent = ({navigation}) => {
       </View>
 
       {/* Profile Content */}
-      <View style={tailwind`flex flex-row mt-4 px-2`}>
-        <View style={tailwind`h-11 w-11`}>
+      <View style={tailwind`flex flex-row items-center mt-4 px-2`}>
+        <View style={tailwind`h-20 w-20`}>
           <Image
-            style={tailwind`h-11 w-11 rounded-full`}
+            style={tailwind`h-20 w-20 rounded-full`}
             source={{
               uri: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
             }}
           />
         </View>
         <View style={tailwind`flex-1 ml-2`}>
-          <Text style={tailwind`text-white text-sm font-medium`}>John Doe</Text>
-          <Text style={tailwind`text-white text-xs font-light`}>
-            Ui/Ux Designer
-          </Text>
+          <Text style={tailwind`text-white text-lg font-medium`}>John Doe</Text>
+          <Text style={tailwind`text-white text-sm font-light`}>Designer</Text>
         </View>
       </View>
 
@@ -41,14 +39,14 @@ const CustomDrawerContent = ({navigation}) => {
         <TouchableOpacity
           onPress={() => navigation.navigate('Feed')}
           style={tailwind`flex flex-row items-center px-2`}>
-          <Icon name="home" size={20} color="#fff" />
-          <Text style={tailwind`text-white my-4 text-sm ml-2`}>Home</Text>
+          <Icon name="home" size={30} color="#fff" />
+          <Text style={tailwind`text-white my-4 text-lg ml-2`}>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => navigation.navigate('Article')}
           style={tailwind`flex flex-row items-center px-2`}>
-          <Icon name="file-document-outline" size={20} color="#fff" />
-          <Text style={tailwind`text-white text-sm ml-2`}>Article</Text>
+          <Icon name="file-document-outline" size={30} color="#fff" />
+          <Text style={tailwind`text-white text-lg ml-2`}>Article</Text>
         </TouchableOpacity>
       </View>
     </DrawerContentScrollView>

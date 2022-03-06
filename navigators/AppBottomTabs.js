@@ -14,7 +14,7 @@ function MyTabs() {
     <ScreenWrapper>
       <Tab.Navigator
         screenOptions={{
-          headerShow: false,
+          headerShown: false,
         }}
         tabBar={props => <CustomTabBarContent {...props} />}>
         <Tab.Screen name="Dashboard" component={Dashboard} />

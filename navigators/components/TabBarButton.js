@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Feather';
 import {
   useAnimatedStyle,
   useSharedValue,
+  withDelay,
   withTiming,
 } from 'react-native-reanimated';
 import Animated from 'react-native-reanimated';
@@ -18,7 +19,8 @@ const icons = {
 
 const TabBarButton = ({isFocused, options, route, navigation, label}) => {
   const sharedValue = useSharedValue(1);
-  const sharedColor = useSharedValue('white');
+  const sharedColor = useSharedValue('transparent');
+  const translateY = useSharedValue(0);
   const onPress = () => {
     const event = navigation.emit({
       type: 'tabPress',
@@ -43,16 +45,23 @@ const TabBarButton = ({isFocused, options, route, navigation, label}) => {
     return {
       flex: sharedValue.value,
       backgroundColor: sharedColor.value,
+      transform: [
+        {
+          translateY: translateY.value,
+        },
+      ],
     };
   }, [sharedValue, sharedColor]);
 
   useEffect(() => {
     if (isFocused) {
-      sharedValue.value = withTiming(4, {duration: 300});
-      sharedColor.value = withTiming('orange', {duration: 300});
+      sharedValue.value = withTiming(4, {duration: 600});
+      sharedColor.value = withTiming('orange', {duration: 600});
+      translateY.value = withDelay(300, withTiming(-5, {duration: 300}));
     } else {
       sharedValue.value = withTiming(1, {duration: 300});
-      sharedColor.value = withTiming('white', {duration: 300});
+      sharedColor.value = withTiming('transparent', {duration: 300});
+      translateY.value = withDelay(300, withTiming(0, {duration: 300}));
     }
     return () => {
       sharedValue.value = withTiming(1, {
